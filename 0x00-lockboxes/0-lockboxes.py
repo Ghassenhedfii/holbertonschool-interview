@@ -1,15 +1,28 @@
 #!/usr/bin/python3
-"""lockboxes."""
+"""Exercise to practice interview"""
+from itertools import dropwhile
+
 
 def canUnlockAll(boxes):
-    """There can be keys that do not have boxes."""
-    keys = [0]
+    """Checks if all boxes can be unlocked"""
 
-    for key in keys:
-        for i in boxes[key]:
-            if i not in keys and i < len(boxes):
-                keys.append(i)
-    for i in range(len(boxes)):
-        if i not in keys:
+    keys = {0}
+    range_boxes = range(len(boxes))
+
+    while True:
+        not_found = set()
+
+        for i in range_boxes:
+            if i in keys:
+                for key in dropwhile(lambda k: k in keys, boxes[i]):
+                    keys.add(key)
+            else:
+                not_found.add(i)
+
+        if range_boxes == not_found:
             return False
-    return True
+
+        if not not_found:
+            return True
+
+        range_boxes = 
