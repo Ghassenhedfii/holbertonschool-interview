@@ -25,4 +25,4 @@ def canUnlockAll(boxes):
         if not not_found:
             return True
 
-        range_boxes = 
+        range_boxes = not_found
