@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include "palindrome.h"
 
+
 bool is_palindrome(unsigned int num) {
     char str[20];
     sprintf(str, "%u", num);
