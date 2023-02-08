@@ -1,30 +1,28 @@
 #include "palindrome.h"
+
 /**
- * reverse_number - reverse number
- * @s: unsigned long s
- * Return: Reversed number
+ * is_palindrome - Checks wheter or not
+ * @n: Number to be checked
+ * Return: return 1 if n is a palindrome,0 otherwise
  */
 
-int reverse_number(unsigned long s)
-{
-	unsigned long r = 0;
 
-	while (s != 0)
+int is_palindrome(unsigned long n)
+{
+	unsigned long reversed_number = 0, remainder, original_number;
+
+	original_number = n;
+
+	while (n != 0)
 	{
-		r = r * 10;
-		r = r + n%10;
-		n = n/10;
+		remainder = n % 10;
+		reversed_number = reversed_number * 10 + remainder;
+		n /= 10;
 	}
 
-	return (r);
-}
-
-int is_palindrome(unsigned long s)
-{
-	unsigned long r = reverse_number(s);
-
-	if ((int)s == (int)r)
+	if (original_number == reversed_number)
 		return (1);
-	else
-		return (0);
+
+	return (0);
 }
+
