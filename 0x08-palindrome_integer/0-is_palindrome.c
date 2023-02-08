@@ -3,15 +3,22 @@
 #include <stdbool.h>
 #include "palindrome.h"
 
+unsigned long long reverse_number(unsigned long long n)
+{
+    unsigned long long r = 0;
 
-bool is_palindrome(unsigned int num) {
-    char str[20];
-    sprintf(str, "%u", num);
-    int len = strlen(str);
-    for (int i = 0; i < len / 2; i++) {
-        if (str[i] != str[len - i - 1]) {
-            return false;
-        }
+    while (n != 0)
+    {
+        r = r * 10 + n % 10;
+        n /= 10;
     }
-    return true;
+
+    return r;
+}
+
+bool is_palindrome(unsigned long long n)
+{
+    unsigned long long r = reverse_number(n);
+
+    return (n == r);
 }
