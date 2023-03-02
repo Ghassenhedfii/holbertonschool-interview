@@ -1,6 +1,4 @@
 #include "lists.h"
-
-
 /**
  * insert_node - insert number into sorted singly linked list
  * @head: pointer-to-pointer of first node in list
@@ -49,3 +47,4 @@ listint_t *insert_node(listint_t **head, int number)
 	current->next = new_node;
 	return (new_node);
 }
+
